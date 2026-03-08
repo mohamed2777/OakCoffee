@@ -1,0 +1,236 @@
+/* --------- CSS Variables --------- */
+:root {
+    --color-dark: #1C1C1C;
+    --color-gray: #2F3437;
+    --color-light: #F5F2EC;
+    --color-brown: #5C3A2E;
+    --color-matcha: #6B8E6E;
+
+    --font-arabic: 'IBM Plex Sans Arabic', sans-serif;
+    --transition: all 0.4s ease-out;
+}
+
+/* --------- Reset & Base --------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--color-dark);
+}
+
+body {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    font-family: var(--font-arabic);
+    line-height: 1.6;
+    overflow-x: hidden;
+    text-align: right;
+    /* RTL alignment */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --------- Hero Section --------- */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 2rem;
+}
+
+.hero-content {
+    margin-top: -50px;
+}
+
+.logo-wrapper {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    padding: 8px;
+    background: linear-gradient(135deg, var(--color-brown) 0%, var(--color-gray) 100%);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.tagline {
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+    font-weight: 300;
+    color: var(--color-light);
+    text-transform: uppercase;
+    opacity: 0.9;
+    margin-top: 1rem;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.scroll-indicator i {
+    font-size: 1.8rem;
+    color: var(--color-light);
+    opacity: 0.7;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: translate(-50%, 0);
+    }
+
+    50% {
+        transform: translate(-50%, 15px);
+    }
+}
+
+/* --------- Menu Images Section --------- */
+.menu-images-section {
+    padding: 2rem 1rem 6rem;
+    background-color: var(--color-gray);
+    position: relative;
+}
+
+.menu-images-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, var(--color-dark), var(--color-gray));
+    z-index: 0;
+}
+
+.images-container {
+    max-width: 800px;
+    /* Limits width nicely on desktop */
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    /* Space between images */
+    align-items: center;
+}
+
+.menu-img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+
+.menu-img:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
+}
+
+/* --------- Footer --------- */
+.footer {
+    background-color: var(--color-dark);
+    padding: 5rem 1.5rem 3rem;
+    text-align: center;
+}
+
+.footer-logo {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    border: 2px solid var(--color-brown);
+    opacity: 0.9;
+}
+
+.footer-arabic {
+    font-size: 1.8rem;
+    color: var(--color-light);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.footer-english {
+    font-size: 1rem;
+    color: var(--color-brown);
+    margin-bottom: 2.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.social-links a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--color-light);
+    font-size: 1.3rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-links a:hover {
+    background-color: var(--color-brown);
+    transform: translateY(-5px) rotate(8deg);
+    border-color: var(--color-brown);
+}
+
+.copyright {
+    font-size: 0.85rem;
+    color: rgba(245, 242, 236, 0.4);
+}
+
+/* --------- Animations --------- */
+.fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
